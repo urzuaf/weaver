@@ -1,0 +1,15 @@
+# server basic config
+# testing blocks and assignments
+
+server "web-prod" {
+    host = "192.168.1.100"
+    port = 443
+    ssl = true
+}
+server "backend" {
+    host = "192.168.1.100"
+}
+server {
+    ip = "192.168.1.21"
+    port = saludos
+}

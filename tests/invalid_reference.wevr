@@ -1,0 +1,11 @@
+# Purpose: Test a reference with a trailing dot.
+# The parser's 'parseReference' expects an IDENT after a DOT.
+
+config "main" {
+    api_host = "api.internal"
+}
+
+server "web" {
+    # This reference is syntactically invalid
+    upstream = main.api_host.
+}

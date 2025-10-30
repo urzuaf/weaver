@@ -1,0 +1,7 @@
+# error test: '}' lacking.
+
+server "app-01" {
+    host = "app.internal"
+    port = 9000
+
+# parser should reach EOF while parsing '}'

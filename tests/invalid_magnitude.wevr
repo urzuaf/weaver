@@ -1,0 +1,6 @@
+# Purpose: Test a magnitude defined with a String instead of an Identifier.
+
+server "test" {
+    # 'parseNumber' expects an IDENT for the unit, not a STRING.
+    timeout = 10 "s"
+}

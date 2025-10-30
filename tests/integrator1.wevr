@@ -1,0 +1,75 @@
+
+# Context: Defines all entities, items, and quests in a game level.
+
+# This is an anonymous block.
+physics {
+    gravity_strength = 9.8     
+    time_scale = 1.0
+}
+
+# This is a named block, so we can reference it later
+character "player" {
+    name = "Hero"
+    health = 100
+    speed = 5 m                 # Magnitude
+    jump_height = 1.5 m         # Magnitude
+    is_invincible = false       # Boolean
+}
+
+# Enemy
+character "goblin_scout" {
+    name = "Goblin Scout"
+    health = 25
+    speed = 7 m
+    
+    # Reference
+    target = player.name
+}
+
+item "temple_key" {
+    id = "key_001"
+    name = "Temple Key"
+    description = "A heavy iron key."
+    quest_item = true
+}
+
+item "health_potion" {
+    id = "pot_001"
+    name = "Health Potion"
+    heal_amount = 50
+}
+
+scenery "temple_door" {
+    locked = true
+    # Reference to the key
+    key_id = temple_key.id
+}
+
+quest "main_story" {
+    title = "The Cursed Temple"
+    time_limit = 600 s         
+    
+    prerequisite = Null    
+    
+    rewards = ["gold", "experience", "temple_key"]
+    
+    waypoints = [
+        point {
+            x = 10
+            y = 50
+            description = "Start at village"
+        },
+        point {
+            x = 120
+            y = 200
+            description = "Cross the river"
+        },
+        point {
+            x = 300
+            y = 450
+            description = "Arrive at temple door"
+            
+            target_door = temple_door.key_id
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+# Unespected token after an identifier
+# parser waits for '' or '=' after 'host'
+
+service "analytics-api" {
+    # Error: 'host' followed by String, not by '='.
+    host "analytics.api.com"
+    port = 80
+}

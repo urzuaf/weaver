@@ -1,0 +1,37 @@
+# Test 
+
+pipeline "etl-daily-users" {
+    # comment
+    source "user-db" {
+        type = "postgresql"
+        host = "db.internal"
+        port = 5432
+    }
+
+    # operator ':'
+    destination "data-warehouse" {
+        type : "s3"
+        bucket : "my-data-lake-prod"
+    }
+
+    overlead "ovl" {
+        test "test" {
+            test "test" {
+                colores = ["negro", "rojo", 42]
+                camion = "azil"
+            }
+            zapato = "negro"
+            camion = "azil"
+        }
+        elefante = 31
+    }
+
+    # configuration flags
+    retries = 3
+    parallel = true
+}
+
+# Un bloque de segundo nivel
+service "monitoring" {
+    enabled = true
+}

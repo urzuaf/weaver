@@ -1,0 +1,19 @@
+# server basic config
+# testing blocks and assignments
+
+server1 "loadBalancer" {
+    host = "192.168.1.100"
+    port = 80
+    ssl = true
+    pointsTo = server2.port.retry
+}
+
+server2 "backend-prod" {
+    host = "192.168.1.101"
+    port = 3030
+    ssl = true
+}
+
+server3 "local"  {
+    host = "127.0.0.1"
+}

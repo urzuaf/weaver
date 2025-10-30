@@ -1,0 +1,7 @@
+# Purpose: Test a token that is not an identifier at the top level.
+
+"This string is not part of a block or assignment."
+
+server "web" {
+    host = "localhost"
+}

@@ -1,0 +1,7 @@
+# Purpose: Test missing commas between list items.
+
+config "main" {
+    # This list is invalid. 'parseList' expects a COMMA
+    # or RBRACKET after '80', but it gets '443'.
+    ports = [80 443 8080]
+}
